@@ -104,6 +104,20 @@ const generateUid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 };
 
+const addTrackToLibrary = function(name, artist, album) {
+  const trackId = 't' + generateUid();
+  library.tracks[trackId] = { id: trackId, name, artist, album };
+  console.log(`Track '${name}' added with ID '${trackId}'.`);
+};
+
+const addPlaylistToLibrary = function(name) {
+  const playlistId = 'p' + generateUid();
+  library.playlists[playlistId] = { id: playlistId, name, tracks: [] };
+  console.log(`Playlist '${name}' added with ID '${playlistId}'.`);
+};
+
+addTrackToLibrary('New Track', 'New Artist', 'New Album');
+addPlaylistToLibrary('New Playlist');
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
