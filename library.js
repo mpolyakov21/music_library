@@ -47,7 +47,14 @@ printPlaylists();
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 function printTracks() {
+  const tracks = Object.keys(library.tracks);
+  for (let i = 0; i < tracks.length; i++) {
+    const trackId = tracks[i];
+    const track = library.tracks[trackId];
+    console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
+  }
 }
+printTracks();
 
 
 // prints a list of tracks for a given playlist, using the following format:
